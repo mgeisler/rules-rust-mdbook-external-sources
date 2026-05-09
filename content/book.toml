@@ -1,0 +1,5 @@
+[book]
+authors = ["Repro"]
+language = "en"
+src = "src"
+title = "Repro Book"

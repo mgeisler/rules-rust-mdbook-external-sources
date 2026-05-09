@@ -1,0 +1,18 @@
+load("@rules_rust_mdbook//:defs.bzl", "mdbook")
+
+# Case 1: All files in external repository. Fails because the rule
+# uses 'external/' prefix for invocation but files are staged at
+# '../'.
+mdbook(
+    name = "repro-external-sources",
+    srcs = ["@content//:srcs"],
+    book = "@content//:book.toml",
+)
+
+# Case 2: Local book.toml, External sources. Fails because external
+# sources are staged as siblings to the work directory root.
+mdbook(
+    name = "repro-mixed-sources",
+    srcs = ["@content//:srcs"],
+    book = "book.toml",
+)

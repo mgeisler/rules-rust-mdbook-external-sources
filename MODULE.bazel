@@ -1,0 +1,18 @@
+module(
+    name = "repro",
+    version = "0.1.0",
+)
+
+bazel_dep(name = "rules_rust", version = "0.70.0")
+bazel_dep(name = "rules_rust_mdbook", version = "0.70.0")
+bazel_dep(name = "content")
+
+local_path_override(
+    module_name = "content",
+    path = "content",
+)
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(edition = "2024")
+use_repo(rust, "rust_toolchains")
+register_toolchains("@rust_toolchains//:all")

@@ -1,0 +1,5 @@
+[book]
+authors = ["Repro Mixed"]
+language = "en"
+src = "src"
+title = "Repro Mixed Book"
