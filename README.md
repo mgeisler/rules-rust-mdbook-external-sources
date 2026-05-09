@@ -42,9 +42,8 @@ bazel build //:repro-external-sources
 
 Failure:
 
-```
-[ERROR] (mdbook::utils): Error: Couldn't open SUMMARY.md in ".../repro-external-sources_/external/content+/src"
-```
+> [ERROR] (`mdbook::utils`): Error: Couldn't open `SUMMARY.md` in
+> `".../repro-external-sources_/external/content+/src"`
 
 The rule expects a nested `external/` directory that doesn't exist in the shadow
 tree.
@@ -57,9 +56,8 @@ bazel build //:repro-mixed-sources
 
 Failure:
 
-```
-[ERROR] (mdbook::utils): Error: Couldn't open SUMMARY.md in ".../repro-mixed-sources_/src"
-```
+> [ERROR] (`mdbook::utils`): Error: Couldn't open `SUMMARY.md` in
+> `".../repro-mixed-sources_/src"`
 
 Because `book.toml` is local, `mdbook` starts in the shadow root. It expects a
 `src/` directory there, but the sources were staged as siblings to the root at
